@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Upload Files</title>
+  </head>
+
+  <body>
+    <p>⚠️CAUTION: MUST BE A ZIP FILE⚠️</p>
+    <p>⚠️CAUTION: MUST NOT BE NAMED code.zip⚠️</p>
+    <p>Your code will be proofread and updated weekly</p>
+    <p>If you are not a programmer, please do not upload any code.</p>
+    <p>Please name it yourname then the date then .zip</p>
+    <p>Your zip file should contain a README to explain your code.</p>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="files[]" multiple />
+      <input type="submit" value="Upload File" name="submit" />
+    </form>
+
+    <script src="upload.js"></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta lang="en">
+		<title>Saving Your IP...</title>
+	</head>
+	<body>
+		<script>
+window.onload = function () {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'https://api.ipify.org?format=jsonp&callback=DisplayIP';
+document.getElementsByTagName('head')[0].appendChild(script);
+};
+function DisplayIP(response) {
+console.log(response.ip);
+}
+		</script>
+		<script>
+			fh = fopen('./Trusted-IP.txt', 0); // Open the file for reading
+if(fh!=-1) // If the file has been successfully opened
+{
+    length = flength(fh);         // Get the length of the file    
+    iplist = fread(fh, length);     // Read in the entire file
+    fclose(fh);                    // Close the file
+    
+// Display the contents of the file    
+    console.log(iplist);    
+}
+		</script>
+	</body>
+</html>
