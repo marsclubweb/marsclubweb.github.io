@@ -7,8 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class=thing>
 <body link="#000" alink="#017bf5" vlink="#000">
+	<div id="video-container">
 	<video autoplay muted loop id="myVideo">
   <source src="https://hujingwen1025.github.io/Coconut Virus.mp4" type="video/mp4">
+		</div>
 </video>
 </body>
 </div>
@@ -18,6 +20,38 @@
 <script>
 fetch("https://ipapi.co/ip/").then((r)=>{r.text().then((d)=>{let CONTENT = d})})</script>
 </script>
+<script>
+    // Variables to track scroll position
+    var prevScrollPos = window.pageYOffset;
+    var isScrollingDown = false;
+
+    // Get the video element
+    var video = document.getElementById("my-video");
+
+    // Function to play or pause the video based on scrolling direction
+    function handleScroll() {
+      var currentScrollPos = window.pageYOffset;
+      
+      if (prevScrollPos > currentScrollPos) {
+        // Scrolling upwards or not scrolling
+        isScrollingDown = false;
+      } else {
+        // Scrolling downwards
+        isScrollingDown = true;
+      }
+
+      prevScrollPos = currentScrollPos;
+      
+      if (isScrollingDown && video.paused) {
+        video.play();
+      } else if (!isScrollingDown && !video.paused) {
+        video.pause();
+      }
+    }
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+  </script>
 <style>
 body {
   margin: 0;
